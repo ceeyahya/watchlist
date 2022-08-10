@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"github.com/ceeyahya/watchlist-backend/database"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )
@@ -15,6 +16,7 @@ func setupRoutes(app *fiber.App) {
 }
 
 func main() {
+	database.Connect()
 	app := fiber.New()
 
 	setupRoutes(app)
