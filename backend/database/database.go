@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/ceeyahya/watchlist-backend/models"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -36,12 +37,13 @@ func Connect() {
 	})
 	if err != nil {
 		log.Fatal("[Error]: Error while connecting to the database.")
+		os.Exit(2)
 	}
 
 	log.Println("[Success]: Successfully Connected to the database.")
 	db.Logger = logger.Default.LogMode(logger.Info)
 	log.Println("[Info]: Running Migrations.")
-	db.AutoMigrate()
+	db.AutoMigrate(&models.Movie{}, &models.Director{})
 
 	Instance = DBInstance{
 		Db: db,
