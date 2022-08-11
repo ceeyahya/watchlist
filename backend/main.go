@@ -17,9 +17,26 @@ func Ping(c *fiber.Ctx) error {
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/", Ping)
-	app.Post("/movie", routes.CreateMovie)
+
+	// Movies Endpoints
 	app.Get("/movies", routes.GetAllMovies)
+	app.Get("/movie/:id", routes.GetMovie)
+	app.Post("/movie", routes.CreateMovie)
+	app.Put("/movie/:id", routes.UpdateMovie)
+	app.Delete("/movie/:id", routes.DeleteMovie)
+
+	// Directors Endpoints
+	app.Get("/directors", routes.GetAllDirectors)
+	app.Get("/director/:id", routes.GetDirector)
+	app.Get("/director-movies/:id", routes.GetDirectorMovies)
 	app.Post("/director", routes.CreateDirector)
+	app.Put("/director/:id", routes.UpdateDirector)
+	app.Delete("/director/:id", routes.DeleteDirector)
+
+	// Statistics
+	app.Get("/len-directors", routes.GetLenDirectors)
+	app.Get("/len-movies", routes.GetLenMovies)
+
 }
 
 func main() {

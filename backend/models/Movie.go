@@ -2,7 +2,7 @@ package models
 
 type Movie struct {
 	ID          uint     `json:"id"`
-	Title       string   `json:"title"`
+	Title       string   `json:"title" gorm:"uniqueIndex"`
 	ReleaseYear string   `json:"releaseYear"`
 	Synopsis    string   `json:"synopsis"`
 	Status      bool     `json:"status"`
@@ -13,6 +13,6 @@ type Movie struct {
 
 type Director struct {
 	ID          int    `json:"id"`
-	Fullname    string `json:"fullname"`
+	Fullname    string `json:"fullname" gorm:"uniqueIndex"`
 	Nationality string `json:"nationality"`
 }
