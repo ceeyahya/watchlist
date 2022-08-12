@@ -7,8 +7,13 @@ import { Tab } from '@headlessui/react';
 import { classNames } from 'utils/classNames';
 import { AddMovie } from 'components/Admin/AddMovie';
 import { AddDirector } from 'components/Admin/AddDirector';
+import axios from 'axios';
 
-const Movies: NextPage = () => {
+const Movies: NextPage<{ directors: any }> = ({
+	directors,
+}: {
+	directors: any;
+}) => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const { user, error, isLoading } = useUser();
 
@@ -53,7 +58,7 @@ const Movies: NextPage = () => {
 								</Tab.List>
 								<Tab.Panels className='py-4'>
 									<Tab.Panel>
-										<AddMovie />
+										<AddMovie directors={directors} />
 									</Tab.Panel>
 									<Tab.Panel>
 										<AddDirector />
@@ -67,6 +72,16 @@ const Movies: NextPage = () => {
 		</div>
 	);
 };
+
+export async function getServerSideProps() {
+	const response = await axios.get('http://127.0.0.1:3000/directors');
+
+	return {
+		props: {
+			directors: response.data,
+		},
+	};
+}
 
 export default withPageAuthRequired(Movies, {
 	onRedirecting: () => <h1>Loading</h1>,

@@ -43,9 +43,9 @@ func main() {
 	database.Connect()
 	app := fiber.New()
 
-	setupRoutes(app)
-
 	app.Use(cors.New())
+
+	setupRoutes(app)
 
 	app.Use(func(c *fiber.Ctx) error {
 		return c.SendStatus(404)

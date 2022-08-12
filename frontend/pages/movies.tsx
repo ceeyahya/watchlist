@@ -1,7 +1,8 @@
+import axios from 'axios';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-const Movies: NextPage = () => {
+const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
 	return (
 		<div>
 			<Head>
@@ -12,9 +13,31 @@ const Movies: NextPage = () => {
 
 			<main>
 				<h1 className='text-2xl font-bold'>Movies</h1>
+				<div className='py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-4'>
+					{movies.map((movie: any) => (
+						<div key={movie.id}>
+							<h2
+								className='text-lg font-bold w-32 truncate'
+								aria-label={movie.title}>
+								{movie.title}
+							</h2>
+							<h2 className='text-sm text-gray-500'>{movie.releaseYear}</h2>
+						</div>
+					))}
+				</div>
 			</main>
 		</div>
 	);
 };
+
+export async function getServerSideProps() {
+	const response = await axios.get('http://127.0.0.1:3000/movies');
+
+	return {
+		props: {
+			movies: response.data,
+		},
+	};
+}
 
 export default Movies;

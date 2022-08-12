@@ -7,6 +7,7 @@ type Movie struct {
 	Synopsis    string   `json:"synopsis"`
 	Status      bool     `json:"status"`
 	Review      string   `json:"review"`
+	Cover       string   `json:"cover"`
 	DirectorID  int      `json:"directorId"`
 	Director    Director `json:"director" gorm:"foreignKey:DirectorID"`
 }
