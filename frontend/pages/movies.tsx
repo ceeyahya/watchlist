@@ -15,13 +15,13 @@ const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
 				<h1 className='text-2xl font-bold'>Movies</h1>
 				<div className='py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-4'>
 					{movies.map((movie: any) => (
-						<div key={movie.id}>
+						<div key={movie?.id}>
 							<h2
 								className='text-lg font-bold w-32 truncate'
-								aria-label={movie.title}>
-								{movie.title}
+								aria-label={movie?.title}>
+								{movie?.title}
 							</h2>
-							<h2 className='text-sm text-gray-500'>{movie.releaseYear}</h2>
+							<p className='text-sm text-gray-500'>{movie?.releaseYear}</p>
 						</div>
 					))}
 				</div>

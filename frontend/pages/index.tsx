@@ -1,10 +1,7 @@
-import { useUser } from '@auth0/nextjs-auth0';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
 const Home: NextPage = () => {
-	const { user, error, isLoading } = useUser();
-
 	return (
 		<div>
 			<Head>
