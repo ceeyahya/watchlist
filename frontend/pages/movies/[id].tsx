@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { NextPage, GetServerSidePropsContext } from 'next';
+import { Movie } from 'types/Movie';
 
-const Movie: NextPage<{ movie: any }> = ({ movie }) => {
+const Movie: NextPage<{ movie: Movie }> = ({ movie }) => {
 	return (
 		<div>
 			<img src={movie?.cover || '/covers.png'} alt='' />
@@ -19,7 +20,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 	const movieId = context.query.id;
 
 	const [movie] = movies.filter(
-		(movie: any) => movie?.id.toString() === movieId
+		(movie: Movie) => movie?.id.toString() === movieId
 	);
 
 	return {

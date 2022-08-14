@@ -7,8 +7,9 @@ import { useUser } from '@auth0/nextjs-auth0';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 
 import { Notification } from 'components/Misc/Notification';
+import { Movie, Movies } from 'types/Movie';
 
-const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
+const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 	const [show, setShow] = useState(false);
 	const { user } = useUser();
 
@@ -28,10 +29,10 @@ const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
 			<main>
 				<h1 className='text-2xl font-bold'>Movies</h1>
 				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4'>
-					{movies.map((movie: any) => (
-						<Link href={`/movies/${movie.id}`}>
+					{movies.map((movie: Movie) => (
+						<Link key={movie?.id} href={`/movies/${movie.id}`}>
 							<a className='hover:scale-105 transition duration-300'>
-								<div className='space-y-2' key={movie?.id}>
+								<div className='space-y-2'>
 									<img
 										className='rounded-md'
 										width={217}

@@ -4,12 +4,9 @@ import type { NextPage } from 'next';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
+import { Director, Directors } from 'types/Director';
 
-const Directors: NextPage<{ directors: any }> = ({
-	directors,
-}: {
-	directors: any;
-}) => {
+const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 	const [show, setShow] = useState(false);
 	const { user } = useUser();
 
@@ -28,7 +25,7 @@ const Directors: NextPage<{ directors: any }> = ({
 			<main>
 				<h1 className='text-2xl font-bold'>Directors</h1>
 				<div className='flex flex-col items-center sm:grid sm:grid-cols-4 sm:gap-x-4'>
-					{directors.map((director: any) => (
+					{directors.map((director: Director) => (
 						<div key={director.id} className='py-8 space-y-2'>
 							<img
 								className='rounded-md shadow shadow-gray-200'

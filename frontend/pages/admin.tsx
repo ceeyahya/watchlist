@@ -8,12 +8,9 @@ import { classNames } from 'utils/classNames';
 import { AddMovie } from 'components/Admin/AddMovie';
 import { AddDirector } from 'components/Admin/AddDirector';
 import axios from 'axios';
+import { Directors } from 'types/Director';
 
-const Movies: NextPage<{ directors: any }> = ({
-	directors,
-}: {
-	directors: any;
-}) => {
+const Movies: NextPage<{ directors: Directors }> = ({ directors }) => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const { user, error, isLoading } = useUser();
 

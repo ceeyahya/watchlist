@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { TextInput } from 'components/Form/TextInput';
 import { Notification } from 'components/Misc/Notification';
+import { Director } from 'types/Director';
 
 export const AddDirector = () => {
 	const [show, setShow] = useState(false);
@@ -13,7 +14,7 @@ export const AddDirector = () => {
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = async (data: any) => {
+	const onSubmit: SubmitHandler<Director> = async (data) => {
 		const formData = new FormData();
 
 		formData.append('file', data.avatar[0]);

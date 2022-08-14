@@ -1,12 +1,14 @@
-import React, { Fragment, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { TextInput } from 'components/Form/TextInput';
 import { TextArea } from 'components/Form/TextArea';
 import { Notification } from 'components/Misc/Notification';
+import { Director, Directors } from 'types/Director';
+import { Movie } from 'types/Movie';
 
-export const AddMovie = ({ directors }: { directors: any }) => {
+export const AddMovie = ({ directors }: { directors: Directors }) => {
 	const [show, setShow] = useState(false);
 	const {
 		register,
@@ -14,7 +16,7 @@ export const AddMovie = ({ directors }: { directors: any }) => {
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = async (data: any) => {
+	const onSubmit: SubmitHandler<Movie> = async (data) => {
 		const formData = new FormData();
 
 		formData.append('file', data.cover[0]);
@@ -40,7 +42,7 @@ export const AddMovie = ({ directors }: { directors: any }) => {
 					status: data.status == 'seen' ? true : false,
 					review: data.review,
 					cover: resp.data.secure_url,
-					directorId: parseInt(data.director),
+					directorId: data.directorId,
 				})
 			)
 			.then((resp) => setShow(true))
@@ -86,8 +88,8 @@ export const AddMovie = ({ directors }: { directors: any }) => {
 						id='director'
 						className='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm rounded-md'
 						{...register('director')}
-						defaultValue={directors[0]}>
-						{directors.map((director: any) => (
+						defaultValue={directors[0].fullname}>
+						{directors.map((director: Director) => (
 							<option key={director?.fullname} value={director?.id}>
 								{director?.fullname}
 							</option>

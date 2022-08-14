@@ -1,10 +1,11 @@
 import React from 'react';
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface TextAreaProps
 	extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
 	name: string;
 	label: string;
-	register: any;
+	register: UseFormRegister<FieldValues>;
 }
 
 export const TextArea = ({ name, label, register, ...rest }: TextAreaProps) => {
@@ -18,7 +19,6 @@ export const TextArea = ({ name, label, register, ...rest }: TextAreaProps) => {
 			<div className='mt-1'>
 				<textarea
 					rows={4}
-					name={name}
 					id={name}
 					className='shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md'
 					defaultValue={''}
