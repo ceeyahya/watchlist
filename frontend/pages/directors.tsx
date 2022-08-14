@@ -1,12 +1,22 @@
-import type { NextPage } from 'next';
+import { useState } from 'react';
 import Head from 'next/head';
+import type { NextPage } from 'next';
 import axios from 'axios';
+import { useUser } from '@auth0/nextjs-auth0';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 
 const Directors: NextPage<{ directors: any }> = ({
 	directors,
 }: {
 	directors: any;
 }) => {
+	const [show, setShow] = useState(false);
+	const { user } = useUser();
+
+	const handleDelete = async (id: number) => {
+		await axios.delete(`http://127.0.0.1/director/${id}`);
+	};
+
 	return (
 		<div>
 			<Head>
@@ -27,11 +37,20 @@ const Directors: NextPage<{ directors: any }> = ({
 								src={director.avatar}
 								alt={director.fullname}
 							/>
-							<div>
-								<h2 className='font-bold text-lg w-44 truncate'>
-									{director.fullname}
-								</h2>
-								<p className='text-gray-500'>{director.nationality}</p>
+							<div className='flex items-center space-x-2 md:space-x-4'>
+								<div>
+									<h2 className='font-bold text-lg w-44 truncate'>
+										{director.fullname}
+									</h2>
+									<p className='text-gray-500'>{director.nationality}</p>
+								</div>
+								{user ? (
+									<button
+										onClick={() => handleDelete(director?.id)}
+										className='text-red-600 hover:text-red-800 transition duration-300'>
+										<RiDeleteBin2Fill className='h-5 w-5' />
+									</button>
+								) : null}
 							</div>
 						</div>
 					))}

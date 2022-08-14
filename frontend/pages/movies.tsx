@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import axios from 'axios';
@@ -11,8 +12,8 @@ const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
 	const [show, setShow] = useState(false);
 	const { user } = useUser();
 
-	const handleDelete = (id: number) => {
-		axios.delete(`http://localhost:3000/movie/${id}`);
+	const handleDelete = async (id: number) => {
+		await axios.delete(`http://localhost:3000/movie/${id}`);
 		setShow(true);
 	};
 
@@ -26,32 +27,37 @@ const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
 
 			<main>
 				<h1 className='text-2xl font-bold'>Movies</h1>
-				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-4 sm:gap-x-4'>
+				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4'>
 					{movies.map((movie: any) => (
-						<div className='space-y-2' key={movie?.id}>
-							<img
-								width={217}
-								height={314}
-								src={movie?.cover || '/covers.png'}
-								alt={`${movie?.title} Cover`}
-							/>
-							<div className='flex items-center space-x-2 lg:space-x-4'>
-								<div>
-									<h2
-										className='text-lg font-bold w-44 truncate'
-										aria-label={movie?.title}>
-										{movie?.title}
-									</h2>
+						<Link href={`/movies/${movie.id}`}>
+							<a className='hover:scale-105 transition duration-300'>
+								<div className='space-y-2' key={movie?.id}>
+									<img
+										className='rounded-md'
+										width={217}
+										height={314}
+										src={movie?.cover || '/covers.png'}
+										alt={`${movie?.title} Cover`}
+									/>
+									<div className='flex items-center space-x-2 lg:space-x-4'>
+										<div>
+											<h2
+												className='text-lg font-bold w-44 truncate'
+												aria-label={movie?.title}>
+												{movie?.title}
+											</h2>
+										</div>
+										{user ? (
+											<button
+												onClick={() => handleDelete(movie?.id)}
+												className='text-red-600 hover:text-red-800 transition duration-300'>
+												<RiDeleteBin2Fill className='h-5 w-5' />
+											</button>
+										) : null}
+									</div>
 								</div>
-								{user ? (
-									<button
-										onClick={() => handleDelete(movie?.id)}
-										className='text-red-600 hover:text-red-800 transition duration-300'>
-										<RiDeleteBin2Fill className='h-5 w-5' />
-									</button>
-								) : null}
-							</div>
-						</div>
+							</a>
+						</Link>
 					))}
 				</div>
 			</main>
