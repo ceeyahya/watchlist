@@ -125,10 +125,10 @@ export const Navbar = () => {
 											</Transition>
 										</Menu>
 									) : (
-										<div className='flex items-center space-x-4'>
+										<div className='flex items-center space-x-2 md:space-x-4'>
 											<button
 												onClick={() => setShow(true)}
-												className='px-2 py-2 rounded-full bg-yellow-100 border border-yellow-200'>
+												className='px-1 py-1 md:px-2 md:py-2 rounded-full bg-yellow-100 border border-yellow-200'>
 												<RiErrorWarningFill
 													className='h-6 w-6 text-yellow-600'
 													aria-hidden='true'

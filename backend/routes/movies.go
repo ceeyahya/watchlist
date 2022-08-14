@@ -36,7 +36,7 @@ func GetAllMovies(c *fiber.Ctx) error {
 		var director models.Director
 
 		database.Instance.Db.Find(&director, "id = ?", movie.DirectorID)
-		respMovie = append(respMovie, models.Movie{ID: movie.ID, Title: movie.Title, Synopsis: movie.Synopsis, Status: movie.Status, ReleaseYear: movie.ReleaseYear, Review: movie.Review, Director: director, DirectorID: movie.DirectorID})
+		respMovie = append(respMovie, models.Movie{ID: movie.ID, Title: movie.Title, Synopsis: movie.Synopsis, Status: movie.Status, ReleaseYear: movie.ReleaseYear, Review: movie.Review, Director: director, Cover: movie.Cover, DirectorID: movie.DirectorID})
 	}
 
 	return c.Status(200).JSON(respMovie)

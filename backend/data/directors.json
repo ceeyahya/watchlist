@@ -1,0 +1,492 @@
+[
+	{
+		"director": "David Fincher",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660340991/david-fincher_dtg4it.jpg"
+	},
+	{
+		"director": "Martin Scorcese",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341008/martin-scorcese_utt7qv.jpg"
+	},
+	{
+		"director": "Quentin Tarantino",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660340991/quentin-tarantino_ce8mjg.jpg"
+	},
+	{
+		"director": "Coen Brothers",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341186/shutterstock_1018135c_djlely.jpg"
+	},
+	{
+		"director": "Denis Villeneuve",
+		"nationality": "Canada-Quebec",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341326/MV5BMzU2MDk5MDI2MF5BMl5BanBnXkFtZTcwNDkwMjMzNA_._V1_UY317_CR0_0_214_317_AL__cpxz6o.jpg"
+	},
+	{
+		"director": "Wes Anderson",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341369/MV5BMTY1MjgzODIwNF5BMl5BanBnXkFtZTcwNTM2NzExMw_._V1_UY317_CR10_0_214_317_AL__owu1qa.jpg"
+	},
+	{
+		"director": "Akira Kurosawa",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341420/MV5BMjE3ODQwNTY2Nl5BMl5BanBnXkFtZTcwMTI5ODM1Mw_._V1_UY317_CR6_0_214_317_AL__wwinwy.jpg"
+	},
+	{
+		"director": "Hayao Miyazaki",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341470/MV5BMjcyNjk2OTkwNF5BMl5BanBnXkFtZTcwOTk0MTQ3Mg_._V1_UY317_CR18_0_214_317_AL__ib2jpr.jpg"
+	},
+	{
+		"director": "Jonathan Demme",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341512/MV5BMTY1NzY0OTQ0OF5BMl5BanBnXkFtZTcwNDY1Njk5Mg_._V1_UY317_CR3_0_214_317_AL__ewyzlf.jpg"
+	},
+	{
+		"director": "Thomas Vinterberg",
+		"nationality": "Denmark",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341563/MV5BMTAzNzE4OTAwMTdeQTJeQWpwZ15BbWU2MDEwNjMyNQ_._V1_UX214_CR0_0_214_317_AL__cd3dlk.jpg"
+	},
+	{
+		"director": "Nicolas Winding Refn",
+		"nationality": "Denmark",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341593/MV5BOTI3NzAzMTAwMl5BMl5BanBnXkFtZTcwNzM5MjQxNw_._V1_UY317_CR4_0_214_317_AL__l5y9dj.jpg"
+	},
+	{
+		"director": "Christoper Nolan",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341632/MV5BNjE3NDQyOTYyMV5BMl5BanBnXkFtZTcwODcyODU2Mw_._V1_UY317_CR7_0_214_317_AL__pdnfrx.jpg"
+	},
+	{
+		"director": "Spike Lee",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341679/MV5BMTgyMTEyNDgxOF5BMl5BanBnXkFtZTcwNTkzMTA3Nw_._V1_UY317_CR12_0_214_317_AL__cigigj.jpg"
+	},
+	{
+		"director": "Guillermo del Toro",
+		"nationality": "Mexico",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341711/MV5BOTUzNTYwNjE0N15BMl5BanBnXkFtZTcwMjc0ODM1Mw_._V1_UY317_CR18_0_214_317_AL__t0pbbf.jpg"
+	},
+	{
+		"director": "Sam Mendes",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341764/MV5BNTgzODMyMDUwNF5BMl5BanBnXkFtZTcwNzEyMjAyMg_._V1_UX214_CR0_0_214_317_AL__lsjrr7.jpg"
+	},
+	{
+		"director": "Edgar Wright",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341818/MV5BMTMxMjgyMjQ4NF5BMl5BanBnXkFtZTcwMTU0ODk2Mw_._V1_UY317_CR6_0_214_317_AL__prlkda.jpg"
+	},
+	{
+		"director": "Rian Johnson",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660341888/MV5BMjA3MTQwNjYyM15BMl5BanBnXkFtZTcwNTI5ODUwNQ_._V1_UY317_CR3_0_214_317_AL__vlezwx.jpg"
+	},
+	{
+		"director": "Todd Phillips",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342005/MV5BMTg4OTgxMTU0MV5BMl5BanBnXkFtZTcwMDEzMDYzNw_._V1_FMjpg_UX500__dgw1xa.jpg"
+	},
+	{
+		"director": "Jordan Peele",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342182/MV5BOGYzMTdiMTAtZjkwZi00NmYwLWE5MTYtNmY1ZmJlMWY4ZGM0XkEyXkFqcGdeQXVyMTkxNjUyNQ_._V1_UX214_CR0_0_214_317_AL__czov1a.jpg"
+	},
+	{
+		"director": "James McTeigue",
+		"nationality": "Australia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342267/MV5BMTUxNTQwNDQ1MV5BMl5BanBnXkFtZTcwOTI2MDUwNg_._V1_UY317_CR19_0_214_317_AL__si0oz3.jpg"
+	},
+	{
+		"director": "Bong Joon Ho",
+		"nationality": "South Korea",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342350/MV5BOGVmYzZkODgtNTQ3OS00MzgxLTllOGUtZTFjNDc4MmE1ZDcwXkEyXkFqcGdeQXVyMTkxNjUyNQ_._V1_UY317_CR108_0_214_317_AL__ehwijj.jpg"
+	},
+	{
+		"director": "Zack Snyder",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342470/MV5BMTMzMjUyNjk1MV5BMl5BanBnXkFtZTcwMDc2Mzk3NA_._V1_UY317_CR11_0_214_317_AL__wtwrm6.jpg"
+	},
+	{
+		"director": "Alfonso Cuarón",
+		"nationality": "Mexico",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342544/MV5BMjA0ODY4OTk4Nl5BMl5BanBnXkFtZTcwNTkxMzYyMg_._V1_UX214_CR0_0_214_317_AL__spzfqh.jpg"
+	},
+	{
+		"director": "Jaco Van Dormael",
+		"nationality": "Belgium",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342771/MV5BMTYzMTEzMjA3MV5BMl5BanBnXkFtZTcwNTc4OTI4OQ_._V1__u1ait5.jpg"
+	},
+	{
+		"director": "Adam McKay",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342840/MV5BZmQ2ZDNkMGYtOWUzNi00N2Q3LTk1MDItODFlNDJkMTZkMjFmXkEyXkFqcGdeQXVyMjMxNzg4Mjk_._V1_UY317_CR11_0_214_317_AL__jv5fxw.jpg"
+	},
+	{
+		"director": "Mary Harron",
+		"nationality": "Canada",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660342933/MV5BMTkzNTQ3NDMzNF5BMl5BanBnXkFtZTcwNjQwNTQxNw_._V1__mb9jk4.jpg"
+	},
+	{
+		"director": "Stanley Kubrick",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660343043/MV5BMTIwMzAwMzg1MV5BMl5BanBnXkFtZTYwMjc4ODQ2._V1_UX214_CR0_0_214_317_AL__zneulu.jpg"
+	},
+	{
+		"director": "Morten Tyldum",
+		"nationality": "Norway",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660343496/MV5BMTkwNTIxMjYxNF5BMl5BanBnXkFtZTgwMjI4MTA3NTE_._V1__beavqm.jpg"
+	},
+	{
+		"director": "James Mangold",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660343794/MV5BMTg5MjY0ODg1MF5BMl5BanBnXkFtZTYwMjUzMjc0._V1_UX214_CR0_0_214_317_AL__y55acq.jpg"
+	},
+	{
+		"director": "Lynne Ramsay",
+		"nationality": "Scotland",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660344210/MV5BMTMxODg4MjY1MV5BMl5BanBnXkFtZTcwNjAzNjQyNQ_._V1_UY317_CR2_0_214_317_AL__mkvadv.jpg"
+	},
+	{
+		"director": "Spike Jonze aka. Adam Spiegel",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660344669/MV5BMjE3MDkyNTMzNl5BMl5BanBnXkFtZTcwOTAxOTAyMw_._V1_UY317_CR22_0_214_317_AL__pz8bxx.jpg"
+	},
+	{
+		"director": "Guy Ritchie",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660344752/MV5BMTM2NDkxMTcxMl5BMl5BanBnXkFtZTcwNTMyNjI5MQ_._V1_UY317_CR8_0_214_317_AL__qi9egj.jpg"
+	},
+	{
+		"director": "David Lowery",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660344849/MV5BMTY1NDU4MjMwOF5BMl5BanBnXkFtZTgwNzYxMDg2OTE_._V1_UY317_CR2_0_214_317_AL__vldldq.jpg"
+	},
+	{
+		"director": "Peter Farelly",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660344938/MV5BMTU5Njg0NjU0M15BMl5BanBnXkFtZTgwNDM5OTg4NjM_._V1_UY317_CR35_0_214_317_AL__yd4dox.jpg"
+	},
+	{
+		"director": "Peter Weir",
+		"nationality": "Australia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345008/MV5BMTIzNDg2NTIyN15BMl5BanBnXkFtZTYwNzQyNDY1._V1_UY317_CR29_0_214_317_AL__qdnqx4.jpg"
+	},
+	{
+		"director": "Richard Kelly",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345079/MV5BMTU4NzA3ODA2NV5BMl5BanBnXkFtZTcwNTk1ODcyMQ_._V1_UY317_CR10_0_214_317_AL__jqzppe.jpg"
+	},
+	{
+		"director": "Dan Gilroy",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345210/MV5BNjc2NDUxMTA1OV5BMl5BanBnXkFtZTgwMzQxOTQxMzE_._V1_UX214_CR0_0_214_317_AL__j28xwt.jpg"
+	},
+	{
+		"director": "Ang Lee",
+		"nationality": "Taiwan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345304/MV5BODA2MTczOTY0N15BMl5BanBnXkFtZTcwNTU3NjA4OA_._V1_UX214_CR0_0_214_317_AL__ii7kfa.jpg"
+	},
+	{
+		"director": "Antoine Fuqua",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345414/MV5BMTM2NDQ4OTkxNV5BMl5BanBnXkFtZTcwMzQ4NzIyMw_._V1_UY317_CR4_0_214_317_AL__ckker5.jpg"
+	},
+	{
+		"director": "Jean Marc Vallée",
+		"nationality": "Canada-Quebec",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345554/MV5BMTczNDUyMTg1OV5BMl5BanBnXkFtZTgwODAzOTIxMDE_._V1_UY317_CR12_0_214_317_AL__qap3au.jpg"
+	},
+	{
+		"director": "Takeshi Kitano",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345680/MV5BMTIwMjA4ODgzM15BMl5BanBnXkFtZTYwNzc3MjI0._V1_UX214_CR0_0_214_317_AL__hqgslm.jpg"
+	},
+	{
+		"director": "Kinji Fukasaku",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660345833/images_sb8lyx.jpg"
+	},
+	{
+		"director": "Elio Petri",
+		"nationality": "Italy",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660346225/media_wr0zxy.jpg"
+	},
+	{
+		"director": "Paolo Sorrentino",
+		"nationality": "Italy",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660346338/MV5BMTkyODc1OTU1NV5BMl5BanBnXkFtZTcwNjAyOTMzNQ_._V1_UX214_CR0_0_214_317_AL__v9zohu.jpg"
+	},
+	{
+		"director": "Irving Pichel, Ernest B. Schoedsack",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660346474/Irving_Pichel_-_still_kee6lt.jpg"
+	},
+	{
+		"director": "Yves Boisset",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660346595/MV5BODM2YTk2OGYtYTU1MS00ZjRkLWJkN2ItYTQ3MjhiNTRkZGVjXkEyXkFqcGdeQXVyMTc4MzI2NQ_._V1__sovyvd.jpg"
+	},
+	{
+		"director": "Takashi Miike",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660346888/MV5BMjI0NTI3NTg1OF5BMl5BanBnXkFtZTcwODU4NDE0NA_._V1_UX214_CR0_0_214_317_AL__pmxxiz.jpg"
+	},
+	{
+		"director": "Marc Webb",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660347015/MV5BMTUxMzA2NDU4MF5BMl5BanBnXkFtZTcwNzQ3NDc1Nw_._V1_UY317_CR130_0_214_317_AL__obbixy.jpg"
+	},
+	{
+		"director": "Frank Darabont",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660347268/MV5BNjk0MTkxNzQwOF5BMl5BanBnXkFtZTcwODM5OTMwNA_._V1_UY317_CR20_0_214_317_AL__tqx73p.jpg"
+	},
+	{
+		"director": "Alex Garland",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660347553/MV5BMTU1ODcxMzA2NF5BMl5BanBnXkFtZTgwNjc2NDk3NTM_._V1_UX214_CR0_0_214_317_AL__m1yi7p.jpg"
+	},
+	{
+		"director": "Daniels (Dan Kwan, Daniel Schneirt)",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660347749/AP522190427938-e1638990698674_leyuug.jpg"
+	},
+	{
+		"director": "Edson Oda",
+		"nationality": "Japan-Brazil",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660348304/MV5BOTI2MjNjZDUtOTExYy00ZjA0LWE2M2MtYjBmZTQxMDIzNDllXkEyXkFqcGdeQXVyMDM2NDM2MQ_._V1__xg5wj8.jpg"
+	},
+	{
+		"director": "Peter Ramsey, Bob Persichetti, Rodney Rodman",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660348655/MV5BMjRhNzUxZmMtNTIxZS00ZDhiLWFjMmItOTI4YmU2ZGNiYjk4XkEyXkFqcGdeQXVyMjk3NTUyOTc_._V1_UY317_CR12_0_214_317_AL__nbltsb.jpg"
+	},
+	{
+		"director": "Jean Pierre Jeunet",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660349005/MV5BMjE2Mjg3MTE2NF5BMl5BanBnXkFtZTYwOTUzMzk1._V1_UY317_CR3_0_214_317_AL__zfepmi.jpg"
+	},
+	{
+		"director": "Park Chan-Wook",
+		"nationality": "South Korea",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660349147/MV5BMTgyODk3MTU5OV5BMl5BanBnXkFtZTcwMTc3NjcyMQ_._V1_UY317_CR14_0_214_317_AL__a1qxmc.jpg"
+	},
+	{
+		"director": "Sofia Coppola",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660349322/MV5BMTcxODIwMDMzOF5BMl5BanBnXkFtZTgwMDE5MTU0MDE_._V1_UX214_CR0_0_214_317_AL__hxudsf.jpg"
+	},
+	{
+		"director": "Ulu Grosbard",
+		"nationality": "Belgium",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660349736/vbqrgmubnido5ttjqqck.jpg"
+	},
+	{
+		"director": "Byron Haskin",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660349928/images_a9lnqn.jpg"
+	},
+	{
+		"director": "Robert Wise",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660350058/MV5BMTA5MDYxNTc4OTVeQTJeQWpwZ15BbWU2MDg0MDYwNQ_._V1_UY317_CR12_0_214_317_AL__jdvbq1.jpg"
+	},
+	{
+		"director": "Katsuhiro Otomo",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660350192/MV5BZjBkOTYyOWItNTI5Yy00NDY3LTk4MjgtYmQyM2Y2NzM0YTY1XkEyXkFqcGdeQXVyNjUwNzk3NDc_._V1_UY317_CR0_0_214_317_AL__nc76nw.jpg"
+	},
+	{
+		"director": "Robert Siodmak",
+		"nationality": "Germany",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660350439/MV5BZTRmZTA2MWYtYzQ5YS00NTE2LWIyMzctZGI0NzQ2MDVlNmZmXkEyXkFqcGdeQXVyMjUxODE0MDY_._V1_UY317_CR15_0_214_317_AL__gcvpbg.jpg"
+	},
+	{
+		"director": "Jacques Tourneur",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660350625/latest_vdhja7.jpg"
+	},
+	{
+		"director": "Alfred Hitchcock",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660350885/MV5BMTQxOTg3ODc2NV5BMl5BanBnXkFtZTYwNTg0NTU2._V1_UX214_CR0_0_214_317_AL__sxaqfc.jpg"
+	},
+	{
+		"director": "Luc Besson",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660351348/MV5BMTAwNzE4Njg0NTFeQTJeQWpwZ15BbWU3MDk0MDEyMDc_._V1_UY317_CR4_0_214_317_AL__avpwfp.jpg"
+	},
+	{
+		"director": "Satoshi Kon",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660351578/MV5BZGZjNzFmY2YtMzNlNi00YThlLWEyNjAtYTI4ZTA2YzcyNGY5XkEyXkFqcGdeQXVyMzM4MjM0Nzg_._V1_UY317_CR175_0_214_317_AL__on62md.jpg"
+	},
+	{
+		"director": "Ingmar Bergman",
+		"nationality": "Sweden",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660352044/Ingmar_Bergman__281966_29_wjct07.jpg"
+	},
+	{
+		"director": "Paul Thomas Anderson",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660352240/MV5BMTQwNjc5NjY2NV5BMl5BanBnXkFtZTcwNDIxMzg1MQ_._V1_UX214_CR0_0_214_317_AL__ojbcmx.jpg"
+	},
+	{
+		"director": "Neill Blomkamp",
+		"nationality": "South Africa-Canada",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660353026/MV5BZjAxMzcyN2EtYmQzYy00MThiLWEyZTYtMDkxYThjMjg4NmMzXkEyXkFqcGdeQXVyMjQwMDg0Ng_._V1__jyjr7n.jpg"
+	},
+	{
+		"director": "Scott Cooper",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660353171/MV5BMTY0MzcxMTQwM15BMl5BanBnXkFtZTcwMzUzNTYwNA_._V1_UX214_CR0_0_214_317_AL__jhbfeg.jpg"
+	},
+	{
+		"director": "Matt Reeves",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660353430/MV5BYmM5NTA4ZGMtMGJhYy00YzlhLThlM2QtZjFjY2Y5YmJjOTE2XkEyXkFqcGdeQXVyNzg5MzIyOA_._V1_UX214_CR0_0_214_317_AL__bzrzxd.jpg"
+	},
+	{
+		"director": "Mathieu Kassovitz",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660353567/qhtupiqabgf4myfs214z.jpg"
+	},
+	{
+		"director": "Taika Waititi",
+		"nationality": "New Zealand",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660404083/MV5BMzk4MDIzNjcwNV5BMl5BanBnXkFtZTgwMTIyMjgwNDI_._V1_UY317_CR20_0_214_317_AL__ezlw5r.jpg"
+	},
+	{
+		"director": "Rupert Sanders",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660404270/MV5BNzc4NDgyMDMyM15BMl5BanBnXkFtZTcwODE0Mjc4Nw_._V1_UY317_CR20_0_214_317_AL__wuvtnx.jpg"
+	},
+	{
+		"director": "Jaques Audiard",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660404466/MV5BMTk0NjU4Njg1OV5BMl5BanBnXkFtZTYwODU5MDY1._V1_UY317_CR7_0_214_317_AL__eg0vkb.jpg"
+	},
+	{
+		"director": "Ari Aster",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660404686/MV5BMTEyNzE1MTU0ODNeQTJeQWpwZ15BbWU4MDUwMjIyNjUz._V1_UX214_CR0_0_214_317_AL__gd0z8r.jpg"
+	},
+	{
+		"director": "Giuseppe Tornatore",
+		"nationality": "Italy",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660404807/MV5BMjIwNTY2MTA5MF5BMl5BanBnXkFtZTcwNjY3ODg5Mg_._V1_UY317_CR11_0_214_317_AL__zalky9.jpg"
+	},
+	{
+		"director": "Greta Gerwig",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660404916/MV5BNDE5MTIxMTMzMV5BMl5BanBnXkFtZTcwMjMxMDYxOQ_._V1_UX214_CR0_0_214_317_AL__apwb2b.jpg"
+	},
+	{
+		"director": "Ryusuke Hamaguchi",
+		"nationality": "Japan",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405024/MV5BZWQ4NmUwOGYtM2MyZi00YWMxLTlhN2YtMzJiMjllNTZhNTk1XkEyXkFqcGdeQXVyNjUxMjc1OTM_._V1_UY317_CR6_0_214_317_AL__s9wlfg.jpg"
+	},
+	{
+		"director": "Valdimar Jóhannsson",
+		"nationality": "Iceland",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405148/MV5BMjY0ODVkOTAtNDFkNS00ZGQxLWFhODAtZmRmMjkxYmYyYjJhXkEyXkFqcGdeQXVyMTc4MzI2NQ_._V1_UY317_CR12_0_214_317_AL__rofpha.jpg"
+	},
+	{
+		"director": "Wong Kar-wai",
+		"nationality": "Hong-Kong",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405258/MV5BMTY4MTQyMjI4NV5BMl5BanBnXkFtZTcwNDk2MzQ2MQ_._V1_UY317_CR1_0_214_317_AL__qctbqc.jpg"
+	},
+	{
+		"director": "Elem Klimov",
+		"nationality": "Russia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405412/MV5BYzMwZDFlNWEtODdlNi00MzZmLTlkM2UtZWYzNTcxOTkyNTI2XkEyXkFqcGdeQXVyMTc4MzI2NQ_._V1_UY317_CR5_0_214_317_AL__gquwfc.jpg"
+	},
+	{
+		"director": "Joe Wright",
+		"nationality": "England",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405530/MV5BMTMyNTI5NjUxM15BMl5BanBnXkFtZTcwMzI3ODQ1MQ_._V1_UX214_CR0_0_214_317_AL__qzzh38.jpg"
+	},
+	{
+		"director": "David Lynch",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405650/MV5BMTQ1MTY2MTY2Nl5BMl5BanBnXkFtZTcwMDg1ODYwNA_._V1_UY317_CR20_0_214_317_AL__dfzjzw.jpg"
+	},
+	{
+		"director": "Matt Ross",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405852/jj4dxriicqxeibwyzt4v.jpg"
+	},
+	{
+		"director": "Roman Polánski",
+		"nationality": "France",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660405946/MV5BMTAzNzgwMzMyNDNeQTJeQWpwZ15BbWU2MDg0MDkzNA_._V1_UX214_CR0_0_214_317_AL__xzwpfh.jpg"
+	},
+	{
+		"director": "Fernando Meirelles, Kátia Lund",
+		"nationality": "Brazil",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660406283/1149722367-Fernando-Meirelles_cdidzz.jpg"
+	},
+	{
+		"director": "Asghar Farhadi",
+		"nationality": "Iran",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660406433/MV5BZDdmYmJiNWQtYWFlMS00M2NlLTg3ZmItMjc5NTg3ZmY1NWJhXkEyXkFqcGdeQXVyNjUxMjc1OTM_._V1__myl7jq.jpg"
+	},
+	{
+		"director": "Alejandro González Iñárritu",
+		"nationality": "Mexico",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660406565/MV5BMTNiZmM2MjMtOTIxMS00Njc4LWFmN2QtYjYzODY5MjUyMGFmXkEyXkFqcGdeQXVyNjUwNzk3NDc_._V1__bqykej.jpg"
+	},
+	{
+		"director": "Garth Davis",
+		"nationality": "Australia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660406697/MV5BMjA1MzgzMTg2MF5BMl5BanBnXkFtZTgwOTgzNzk5OTE_._V1_UY317_CR16_0_214_317_AL__s617oj.jpg"
+	},
+	{
+		"director": "Damián Szifron",
+		"nationality": "Argentina",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660406819/MV5BNzQ2NTYyODAzMV5BMl5BanBnXkFtZTgwNzM1NDUxNDE_._V1_UX214_CR0_0_214_317_AL__y4onn7.jpg"
+	},
+	{
+		"director": "Emir Kusturica",
+		"nationality": "Serbia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660406997/MV5BYjIwOTAyMWYtYmJhMS00YWI3LTlhYTYtZDBmYjJiYTE2NmVmXkEyXkFqcGdeQXVyMTkxNjUyNQ_._V1__meggij.jpg"
+	},
+	{
+		"director": "Andrey Zvyagintsev",
+		"nationality": "Russia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660407130/MV5BMTY0ODUwODU0MV5BMl5BanBnXkFtZTgwOTU2OTQ0MjI_._V1_UY317_CR131_0_214_317_AL__ep8mx8.jpg"
+	},
+	{
+		"director": "Federico Fellini",
+		"nationality": "Italy",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660407450/MV5BMjE0NDI1MDU5Nl5BMl5BanBnXkFtZTgwNjQ2ODMwMzE_._V1_UY317_CR8_0_214_317_AL__grhb4g.jpg"
+	},
+	{
+		"director": "Rungano Nyoni",
+		"nationality": "Zambia",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660407594/wdzrvkujgqxgydcnfh4i.jpg"
+	},
+	{
+		"director": "Paweł Pawlikowski",
+		"nationality": "Poland",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660407726/MV5BMTU5OTQ1NDEzNV5BMl5BanBnXkFtZTgwMDk1OTk4MDE_._V1_UY317_CR12_0_214_317_AL__ptihe5.jpg"
+	},
+	{
+		"director": "Robert Eggers",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660407853/MV5BMjM1ODMxMTAxMF5BMl5BanBnXkFtZTgwMjM4NDAyNDE_._V1_UY317_CR131_0_214_317_AL__xwi1mq.jpg"
+	},
+	{
+		"director": "Nadine Labaki",
+		"nationality": "Lebanon",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660408007/Nadine_Labaki_by_Matteo_Chinellato__28cropped_29_vkuuov.jpg"
+	},
+	{
+		"director": "Darius Marder",
+		"nationality": "US",
+		"avatar": "https://res.cloudinary.com/dxt7moltj/image/upload/v1660408170/DariusMarder-2019_xafrbb.jpg"
+	}
+]

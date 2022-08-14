@@ -15,6 +15,6 @@ type Movie struct {
 type Director struct {
 	ID          int    `json:"id"`
 	Fullname    string `json:"fullname" gorm:"uniqueIndex"`
-	Avatar      string
+	Avatar      string `json:"avatar"`
 	Nationality string `json:"nationality"`
 }

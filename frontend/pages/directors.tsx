@@ -1,7 +1,12 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import axios from 'axios';
 
-const Directors: NextPage = () => {
+const Directors: NextPage<{ directors: any }> = ({
+	directors,
+}: {
+	directors: any;
+}) => {
 	return (
 		<div>
 			<Head>
@@ -11,10 +16,39 @@ const Directors: NextPage = () => {
 			</Head>
 
 			<main>
-				<h1 className='text-2xl font-bold'>Movies</h1>
+				<h1 className='text-2xl font-bold'>Directors</h1>
+				<div className='flex flex-col items-center sm:grid sm:grid-cols-4 sm:gap-x-4'>
+					{directors.map((director: any) => (
+						<div key={director.id} className='py-8 space-y-2'>
+							<img
+								className='rounded-md shadow shadow-gray-200'
+								width={214}
+								height={317}
+								src={director.avatar}
+								alt={director.fullname}
+							/>
+							<div>
+								<h2 className='font-bold text-lg w-44 truncate'>
+									{director.fullname}
+								</h2>
+								<p className='text-gray-500'>{director.nationality}</p>
+							</div>
+						</div>
+					))}
+				</div>
 			</main>
 		</div>
 	);
 };
+
+export async function getServerSideProps() {
+	const response = await axios.get('http://127.0.0.1:3000/directors');
+
+	return {
+		props: {
+			directors: response.data,
+		},
+	};
+}
 
 export default Directors;

@@ -1,8 +1,21 @@
-import axios from 'axios';
-import type { NextPage } from 'next';
+import { useState } from 'react';
 import Head from 'next/head';
+import type { NextPage } from 'next';
+import axios from 'axios';
+import { useUser } from '@auth0/nextjs-auth0';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
+
+import { Notification } from 'components/Misc/Notification';
 
 const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
+	const [show, setShow] = useState(false);
+	const { user } = useUser();
+
+	const handleDelete = (id: number) => {
+		axios.delete(`http://localhost:3000/movie/${id}`);
+		setShow(true);
+	};
+
 	return (
 		<div>
 			<Head>
@@ -13,19 +26,41 @@ const Movies: NextPage<{ movies: any }> = ({ movies }: { movies: any }) => {
 
 			<main>
 				<h1 className='text-2xl font-bold'>Movies</h1>
-				<div className='py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-4'>
+				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-4 sm:gap-x-4'>
 					{movies.map((movie: any) => (
-						<div key={movie?.id}>
-							<h2
-								className='text-lg font-bold w-32 truncate'
-								aria-label={movie?.title}>
-								{movie?.title}
-							</h2>
-							<p className='text-sm text-gray-500'>{movie?.releaseYear}</p>
+						<div className='space-y-2' key={movie?.id}>
+							<img
+								width={217}
+								height={314}
+								src={movie?.cover || '/covers.png'}
+								alt={`${movie?.title} Cover`}
+							/>
+							<div className='flex items-center space-x-2 lg:space-x-4'>
+								<div>
+									<h2
+										className='text-lg font-bold w-44 truncate'
+										aria-label={movie?.title}>
+										{movie?.title}
+									</h2>
+								</div>
+								{user ? (
+									<button
+										onClick={() => handleDelete(movie?.id)}
+										className='text-red-600 hover:text-red-800 transition duration-300'>
+										<RiDeleteBin2Fill className='h-5 w-5' />
+									</button>
+								) : null}
+							</div>
 						</div>
 					))}
 				</div>
 			</main>
+			<Notification
+				show={show}
+				setShow={setShow}
+				title='Successfully Deleted'
+				text='a record has been deleted from the database'
+			/>
 		</div>
 	);
 };
