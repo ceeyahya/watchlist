@@ -1,5 +1,6 @@
 import React from 'react';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { Movie } from 'types/Movie';
 
 interface TextAreaProps
 	extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {

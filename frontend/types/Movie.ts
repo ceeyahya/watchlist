@@ -7,7 +7,7 @@ export type Movie = {
 	review: string;
 	synopsis: string;
 	status: boolean;
-	directorId: number;
+	directorId: string;
 	cover: string;
 	director: Director;
 };

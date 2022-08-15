@@ -1,22 +1,29 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+	SubmitHandler,
+	useForm,
+	Controller,
+	FieldValues,
+} from 'react-hook-form';
 
 import { TextInput } from 'components/Form/TextInput';
 import { TextArea } from 'components/Form/TextArea';
 import { Notification } from 'components/Misc/Notification';
 import { Director, Directors } from 'types/Director';
 import { Movie } from 'types/Movie';
+import { RadioButtons } from 'components/Form/RadioButtons';
 
 export const AddMovie = ({ directors }: { directors: Directors }) => {
 	const [show, setShow] = useState(false);
 	const {
 		register,
 		handleSubmit,
+		control,
 		formState: { errors },
-	} = useForm();
+	} = useForm<FieldValues | Movie>();
 
-	const onSubmit: SubmitHandler<Movie> = async (data) => {
+	const onSubmit: SubmitHandler<FieldValues | Movie> = async (data) => {
 		const formData = new FormData();
 
 		formData.append('file', data.cover[0]);
@@ -39,10 +46,10 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 					title: data.title,
 					releaseYear: data.releaseYear,
 					synopsis: data.synopsis,
-					status: data.status == 'seen' ? true : false,
+					status: data.status,
 					review: data.review,
 					cover: resp.data.secure_url,
-					directorId: data.directorId,
+					directorId: parseInt(data.directorId),
 				})
 			)
 			.then((resp) => setShow(true))
@@ -85,10 +92,10 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 						Director
 					</label>
 					<select
-						id='director'
+						id='directorId'
 						className='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm rounded-md'
-						{...register('director')}
-						defaultValue={directors[0].fullname}>
+						{...register('directorId')}
+						defaultValue={directors[0]?.id}>
 						{directors.map((director: Director) => (
 							<option key={director?.fullname} value={director?.id}>
 								{director?.fullname}
@@ -104,38 +111,8 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 					placeholder='You should not aspire to be Travis Bickle...'
 				/>
 
-				<div className='flex items-center space-x-2'>
-					<div className='flex items-center'>
-						<input
-							id='status'
-							type='radio'
-							value='seen'
-							defaultChecked={false}
-							className='focus:ring-gray-500 h-4 w-4 text-black border-gray-300'
-							{...register('status')}
-						/>
-						<label
-							htmlFor='status'
-							className='ml-1 block text-sm font-medium text-gray-700'>
-							Seen
-						</label>
-					</div>
-
-					<div className='flex items-center'>
-						<input
-							id='status'
-							type='radio'
-							value='watchlist'
-							defaultChecked={true}
-							className='focus:ring-gray-500 h-4 w-4 text-black border-gray-300'
-							{...register('status')}
-						/>
-						<label
-							htmlFor='status'
-							className='ml-1 block text-sm font-medium text-gray-700'>
-							Watchlist
-						</label>
-					</div>
+				<div>
+					<RadioButtons control={control} name='status' />
 				</div>
 
 				<div>
