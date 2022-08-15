@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { TextInput } from 'components/Form/TextInput';
 import { Notification } from 'components/Misc/Notification';
 import { Director } from 'types/Director';
+
+const schema = yup.object().shape({
+	id: yup.number().required(),
+	fullname: yup.string().required(),
+	nationality: yup.string().required(),
+	avatar: yup.string().url(),
+});
 
 export const AddDirector = () => {
 	const [show, setShow] = useState(false);
@@ -12,7 +21,10 @@ export const AddDirector = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<FieldValues | Director>();
+		reset,
+	} = useForm<FieldValues | Director>({
+		resolver: yupResolver(schema),
+	});
 
 	const onSubmit: SubmitHandler<FieldValues | Director> = async (data) => {
 		const formData = new FormData();
@@ -41,26 +53,38 @@ export const AddDirector = () => {
 			)
 			.then((resp) => setShow(true))
 			.catch((err) => console.log(err));
+
+		reset();
 	};
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit(onSubmit)} className='max-w-lg space-y-4'>
-				<TextInput
-					label='Full Name'
-					name='fullname'
-					type='text'
-					placeholder='Martin Scorcese'
-					register={register}
-				/>
+				<div>
+					<TextInput
+						label='Full Name'
+						name='fullname'
+						type='text'
+						placeholder='Martin Scorcese'
+						register={register}
+					/>
+					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
+						{errors.fullname?.message}
+					</p>
+				</div>
 
-				<TextInput
-					label='Nationality'
-					name='nationality'
-					type='text'
-					placeholder='US'
-					register={register}
-				/>
+				<div>
+					<TextInput
+						label='Nationality'
+						name='nationality'
+						type='text'
+						placeholder='US'
+						register={register}
+					/>
+					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
+						{errors.nationality?.message}
+					</p>
+				</div>
 
 				<div>
 					<input
@@ -69,6 +93,9 @@ export const AddDirector = () => {
 						id='cover'
 						{...register('avatar')}
 					/>
+					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
+						{errors.avatar?.message}
+					</p>
 				</div>
 
 				<div>

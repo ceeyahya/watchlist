@@ -4,6 +4,8 @@ import type { NextPage } from 'next';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
+
+import { Notification } from 'components/Misc/Notification';
 import { Director, Directors } from 'types/Director';
 
 const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
@@ -12,6 +14,7 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 
 	const handleDelete = async (id: number) => {
 		await axios.delete(`http://127.0.0.1/director/${id}`);
+		setShow(true);
 	};
 
 	return (
@@ -53,6 +56,12 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 					))}
 				</div>
 			</main>
+			<Notification
+				show={show}
+				setShow={setShow}
+				title='Successfully Deleted'
+				text='a record has been deleted from the database'
+			/>
 		</div>
 	);
 };
