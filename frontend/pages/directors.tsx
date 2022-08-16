@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import axios from 'axios';
@@ -27,32 +28,36 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 
 			<main>
 				<h1 className='text-2xl font-bold'>Directors</h1>
-				<div className='flex flex-col items-center sm:grid sm:grid-cols-4 sm:gap-x-4'>
+				<div className='flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-x-4'>
 					{directors.map((director: Director) => (
-						<div key={director.id} className='py-8 space-y-2'>
-							<img
-								className='rounded-md shadow shadow-gray-200'
-								width={214}
-								height={317}
-								src={director.avatar}
-								alt={director.fullname}
-							/>
-							<div className='flex items-center space-x-2 md:space-x-4'>
-								<div>
-									<h2 className='font-bold text-lg w-44 truncate'>
-										{director.fullname}
-									</h2>
-									<p className='text-gray-500'>{director.nationality}</p>
+						<Link href={`/directors/${director.id}`}>
+							<a>
+								<div key={director.id} className='group py-8 space-y-4'>
+									<img
+										className='group-hover:hover:scale-105 shadow-md shadow-gray-200 rounded-md transition duration-300 '
+										width={214}
+										height={317}
+										src={director.avatar}
+										alt={director.fullname}
+									/>
+									<div className='flex items-center space-x-2 md:space-x-4'>
+										<div>
+											<h2 className='font-bold text-lg w-44 truncate'>
+												{director.fullname}
+											</h2>
+											<p className='text-gray-500'>{director.nationality}</p>
+										</div>
+										{user ? (
+											<button
+												onClick={() => handleDelete(director?.id)}
+												className='text-red-600 hover:text-red-800 transition duration-300'>
+												<RiDeleteBin2Fill className='h-5 w-5' />
+											</button>
+										) : null}
+									</div>
 								</div>
-								{user ? (
-									<button
-										onClick={() => handleDelete(director?.id)}
-										className='text-red-600 hover:text-red-800 transition duration-300'>
-										<RiDeleteBin2Fill className='h-5 w-5' />
-									</button>
-								) : null}
-							</div>
-						</div>
+							</a>
+						</Link>
 					))}
 				</div>
 			</main>
@@ -67,7 +72,7 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 };
 
 export async function getServerSideProps() {
-	const response = await axios.get('http://127.0.0.1:3000/directors');
+	const response = await axios.get('http://127.0.0.1:8080/directors');
 
 	return {
 		props: {

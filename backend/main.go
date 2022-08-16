@@ -34,8 +34,7 @@ func setupRoutes(app *fiber.App) {
 	app.Delete("/director/:id", routes.DeleteDirector)
 
 	// Statistics
-	app.Get("/len-directors", routes.GetLenDirectors)
-	app.Get("/len-movies", routes.GetLenMovies)
+	app.Get("/statistics", routes.GetGeneralStatistics)
 
 }
 
@@ -51,5 +50,5 @@ func main() {
 		return c.SendStatus(404)
 	})
 
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen("0.0.0.0:8080"))
 }

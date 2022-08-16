@@ -13,7 +13,7 @@ const Movie: NextPage<{ director: Director }> = ({ director }) => {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	const res = await axios.get('http://127.0.0.1:3000/directors');
+	const res = await axios.get('http://127.0.0.1:8080/directors');
 	const directors = await res?.data;
 	const directorId = context.query.id;
 

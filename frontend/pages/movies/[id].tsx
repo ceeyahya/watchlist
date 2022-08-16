@@ -15,7 +15,7 @@ const Movie: NextPage<{ movie: Movie }> = ({ movie }) => {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	const res = await axios.get('http://127.0.0.1:3000/movies');
+	const res = await axios.get('http://127.0.0.1:8080/movies');
 	const movies = await res?.data;
 	const movieId = context.query.id;
 

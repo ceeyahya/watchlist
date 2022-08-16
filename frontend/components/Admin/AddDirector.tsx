@@ -45,7 +45,7 @@ export const AddDirector = () => {
 				formData
 			)
 			.then((resp) =>
-				axios.post('http://127.0.0.1:3000/director', {
+				axios.post('http://127.0.0.1:8080/director', {
 					fullname: data.fullname,
 					nationality: data.nationality,
 					avatar: resp.data.secure_url,

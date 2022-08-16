@@ -6,18 +6,31 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func GetLenDirectors(c *fiber.Ctx) error {
+func getDirectorsCount() int64 {
 	directors := []models.Director{}
-
-	result := database.Instance.Db.Find(&directors)
-
-	return c.Status(200).JSON(fiber.Map{"directors": result.RowsAffected})
+	var count int64
+	database.Instance.Db.Find(&directors).Count(&count)
+	return count
 }
 
-func GetLenMovies(c *fiber.Ctx) error {
+func getMoviesCount() int64 {
 	movies := []models.Movie{}
+	var count int64
+	database.Instance.Db.Find(&movies).Count(&count)
+	return count
+}
 
-	result := database.Instance.Db.Find(&movies)
+func getCountriesCount() int64 {
+	directors := []models.Director{}
+	var count int64
+	database.Instance.Db.Distinct("nationality").Find(&directors).Count(&count)
+	return count
+}
 
-	return c.Status(200).JSON(fiber.Map{"movies": result.RowsAffected})
+func GetGeneralStatistics(c *fiber.Ctx) error {
+	moviesCount := getMoviesCount()
+	directorsCount := getDirectorsCount()
+	countriesCount := getCountriesCount()
+
+	return c.Status(200).JSON(fiber.Map{"movies": moviesCount, "directors": directorsCount, "countries": countriesCount})
 }

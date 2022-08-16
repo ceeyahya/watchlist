@@ -31,10 +31,10 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4'>
 					{movies.map((movie: Movie) => (
 						<Link key={movie?.id} href={`/movies/${movie.id}`}>
-							<a className='hover:scale-105 transition duration-300'>
-								<div className='space-y-2'>
+							<a className='group '>
+								<div className='space-y-4'>
 									<img
-										className='rounded-md'
+										className='group-hover:hover:scale-105 shadow-md shadow-gray-200 rounded-md transition duration-300 '
 										width={217}
 										height={314}
 										src={movie?.cover || '/covers.png'}
@@ -73,7 +73,7 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 };
 
 export async function getServerSideProps() {
-	const response = await axios.get('http://127.0.0.1:3000/movies');
+	const response = await axios.get('http://127.0.0.1:8080/movies');
 
 	return {
 		props: {
