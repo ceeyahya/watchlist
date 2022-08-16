@@ -1,6 +1,62 @@
 import axios from 'axios';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import {
+	BarChart,
+	Bar,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
+	Legend,
+	ResponsiveContainer,
+	ReferenceLine,
+} from 'recharts';
+
+const data = [
+	{
+		name: 'Page A',
+		uv: 4000,
+		pv: 2400,
+		amt: 2400,
+	},
+	{
+		name: 'Page B',
+		uv: 3000,
+		pv: 1398,
+		amt: 2210,
+	},
+	{
+		name: 'Page C',
+		uv: 2000,
+		pv: 9800,
+		amt: 2290,
+	},
+	{
+		name: 'Page D',
+		uv: 2780,
+		pv: 3908,
+		amt: 2000,
+	},
+	{
+		name: 'Page E',
+		uv: 1890,
+		pv: 4800,
+		amt: 2181,
+	},
+	{
+		name: 'Page F',
+		uv: 2390,
+		pv: 3800,
+		amt: 2500,
+	},
+	{
+		name: 'Page G',
+		uv: 3490,
+		pv: 4300,
+		amt: 2100,
+	},
+];
 
 const Home: NextPage<{
 	statistics: {
@@ -10,6 +66,9 @@ const Home: NextPage<{
 		mpc: Array<{ nationality: string; count: number }>;
 	};
 }> = ({ statistics }) => {
+	const highestMovieNumber = Math.max(
+		...statistics.mpc.map((data) => data.count)
+	);
 	return (
 		<div>
 			<Head>
@@ -20,7 +79,7 @@ const Home: NextPage<{
 
 			<main className=''>
 				<h1 className='text-2xl font-bold'>Statistics</h1>
-				<dl className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3'>
+				<dl className='mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3'>
 					<div className='px-4 py-5 bg-white shadow-md shadow-gray-200 border border-gray-100 rounded-md overflow-hidden sm:p-6'>
 						<dt className='text-sm font-medium text-gray-500 truncate'>
 							Movies
@@ -50,7 +109,35 @@ const Home: NextPage<{
 				</dl>
 			</main>
 			<div className='py-8'>
-				<svg className='rounded-md border border-indigo-500' />
+				<ResponsiveContainer width='50%' height={500}>
+					<BarChart
+						data={statistics.mpc}
+						margin={{ top: 5, right: 20, left: 20, bottom: 80 }}>
+						<CartesianGrid strokeDasharray='3 3' />
+						<XAxis
+							dataKey='nationality'
+							interval={0}
+							fontSize={10}
+							angle={-90}
+							dy={50}
+							dx={-5}
+						/>
+						<YAxis />
+						<Tooltip />
+						<ReferenceLine
+							y={highestMovieNumber}
+							label={{
+								value: `Highest Number of Movies per Country: ${highestMovieNumber}`,
+								position: 'top',
+								fontSize: 12,
+								fontWeight: 'bold',
+							}}
+							stroke='red'
+							strokeDasharray='3 3'
+						/>
+						<Bar dataKey='count' fill='#4f46e5' />
+					</BarChart>
+				</ResponsiveContainer>
 			</div>
 		</div>
 	);
