@@ -3,7 +3,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 const Home: NextPage<{
-	statistics: { movies: number; directors: number; countries: number };
+	statistics: {
+		movies: number;
+		directors: number;
+		countries: number;
+		mpc: Array<{ nationality: string; count: number }>;
+	};
 }> = ({ statistics }) => {
 	return (
 		<div>
@@ -44,6 +49,9 @@ const Home: NextPage<{
 					</div>
 				</dl>
 			</main>
+			<div className='py-8'>
+				<svg className='rounded-md border border-indigo-500' />
+			</div>
 		</div>
 	);
 };
