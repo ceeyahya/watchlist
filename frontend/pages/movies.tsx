@@ -2,14 +2,23 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import type { NextPage } from 'next';
-import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0';
-import { RiDeleteBin2Fill } from 'react-icons/ri';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import { RiDeleteBin2Fill, RiLoader4Fill } from 'react-icons/ri';
 
+import { fetchMovies } from 'lib/movies';
 import { Notification } from 'components/Misc/Notification';
 import { Movie, Movies } from 'types/Movie';
 
 const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
+	const { isLoading, isError, error, data } = useQuery(
+		['movies'],
+		fetchMovies,
+		{
+			initialData: movies,
+		}
+	);
 	const [show, setShow] = useState(false);
 	const { user } = useUser();
 
@@ -17,6 +26,14 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 		await axios.delete(`http://localhost:3000/movie/${id}`);
 		setShow(true);
 	};
+
+	if (isLoading) {
+		return (
+			<div className='fixed inset-0 h-screen'>
+				<RiLoader4Fill className='h-6 w-6 animate-spin-slow' />
+			</div>
+		);
+	}
 
 	return (
 		<div>
@@ -29,7 +46,7 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 			<main>
 				<h1 className='text-2xl font-bold'>Movies</h1>
 				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4'>
-					{movies.map((movie: Movie) => (
+					{data.map((movie: Movie) => (
 						<Link key={movie?.id} href={`/movies/${movie.id}`}>
 							<a className='group '>
 								<div className='space-y-4'>
@@ -73,11 +90,11 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 };
 
 export async function getServerSideProps() {
-	const response = await axios.get('http://127.0.0.1:8080/movies');
+	const response = await fetchMovies();
 
 	return {
 		props: {
-			movies: response.data,
+			movies: response,
 		},
 	};
 }

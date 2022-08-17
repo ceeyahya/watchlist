@@ -11,6 +11,11 @@ module.exports = {
 			fontFamily: {
 				sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
 			},
+			extend: {
+				animation: {
+					'spin-slow': 'spin 3s linear infinite',
+				},
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/forms')],

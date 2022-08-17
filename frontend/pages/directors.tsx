@@ -1,15 +1,24 @@
 import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0';
-import { RiDeleteBin2Fill } from 'react-icons/ri';
+import { RiDeleteBin2Fill, RiLoader4Fill } from 'react-icons/ri';
 
 import { Notification } from 'components/Misc/Notification';
 import { Director, Directors } from 'types/Director';
+import { fetchDirectors } from 'lib/directors';
 
 const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
+	const { isLoading, isError, error, data } = useQuery(
+		['directors'],
+		fetchDirectors,
+		{
+			initialData: directors,
+		}
+	);
 	const [show, setShow] = useState(false);
 	const { user } = useUser();
 
@@ -17,6 +26,14 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 		await axios.delete(`http://127.0.0.1/director/${id}`);
 		setShow(true);
 	};
+
+	if (isLoading) {
+		return (
+			<div className='fixed inset-0 h-screen'>
+				<RiLoader4Fill className='h-6 w-6 animate-spin-slow' />
+			</div>
+		);
+	}
 
 	return (
 		<div>
@@ -72,11 +89,11 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 };
 
 export async function getServerSideProps() {
-	const response = await axios.get('http://127.0.0.1:8080/directors');
+	const response = await fetchDirectors();
 
 	return {
 		props: {
-			directors: response.data,
+			directors: response,
 		},
 	};
 }

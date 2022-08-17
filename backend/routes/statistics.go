@@ -9,8 +9,8 @@ import (
 )
 
 type StatElement struct {
-	Nationality string `json:"nationality"`
-	Count       int64  `json:"count"`
+	Label string `json:"label"`
+	Value int64  `json:"value"`
 }
 
 func getDirectorsCount() int64 {
@@ -51,8 +51,8 @@ func getMoviesPerCountry() []StatElement {
 		database.Instance.Db.Raw(query).Scan(&count)
 
 		stat := StatElement{
-			Nationality: nationality,
-			Count:       count,
+			Label: nationality,
+			Value: count,
 		}
 
 		response = append(response, stat)
@@ -61,15 +61,43 @@ func getMoviesPerCountry() []StatElement {
 	return response
 }
 
+func getSeenToWatchlist() (int64, int64) {
+	movies := models.Movie{}
+	var seen int64
+	var watchlist int64
+
+	database.Instance.Db.Find(&movies).Where("status = ?", true).Count(&seen)
+	database.Instance.Db.Raw("SELECT COUNT(movies.title) FROM movies WHERE status = FALSE;").Scan(&watchlist)
+
+	return seen, watchlist
+}
+
 func GetGeneralStatistics(c *fiber.Ctx) error {
 	moviesCount := getMoviesCount()
 	directorsCount := getDirectorsCount()
 	countriesCount := getCountriesCount()
 	moviesPerCountry := getMoviesPerCountry()
+	seen, watchlist := getSeenToWatchlist()
+
+	stw := []fiber.Map{}
+
+	seenObj := fiber.Map{
+		"label": "Seen",
+		"value": seen,
+	}
+
+	watchlistObj := fiber.Map{
+		"label": "Watchlist",
+		"value": watchlist,
+	}
+
+	stw = append(stw, seenObj, watchlistObj)
 
 	return c.Status(200).JSON(fiber.Map{
 		"movies":    moviesCount,
 		"directors": directorsCount,
 		"countries": countriesCount,
-		"mpc":       moviesPerCountry})
+		"mpc":       moviesPerCountry,
+		"stw":       stw,
+	})
 }

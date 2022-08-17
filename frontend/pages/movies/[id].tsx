@@ -1,8 +1,22 @@
-import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import { fetchMovies } from 'lib/movies';
 import { NextPage, GetServerSidePropsContext } from 'next';
+import { RiLoader4Fill } from 'react-icons/ri';
 import { Movie } from 'types/Movie';
 
 const Movie: NextPage<{ movie: Movie }> = ({ movie }) => {
+	const { isLoading, isError, error, data } = useQuery(['movie'], fetchMovies, {
+		initialData: movie,
+	});
+
+	if (isLoading) {
+		return (
+			<div className='fixed inset-0 h-screen'>
+				<RiLoader4Fill className='h-6 w-6 animate-spin-slow' />
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<img src={movie?.cover || '/covers.png'} alt='' />
@@ -15,11 +29,10 @@ const Movie: NextPage<{ movie: Movie }> = ({ movie }) => {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	const res = await axios.get('http://127.0.0.1:8080/movies');
-	const movies = await res?.data;
+	const res = await fetchMovies();
 	const movieId = context.query.id;
 
-	const [movie] = movies.filter(
+	const [movie] = res.filter(
 		(movie: Movie) => movie?.id.toString() === movieId
 	);
 

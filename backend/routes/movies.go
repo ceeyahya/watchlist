@@ -28,18 +28,16 @@ func CreateMovie(c *fiber.Ctx) error {
 
 func GetAllMovies(c *fiber.Ctx) error {
 	movies := []models.Movie{}
-	respMovie := []models.Movie{}
 
-	database.Instance.Db.Find(&movies)
+	database.Instance.Db.Model(&models.Movie{}).Find(&movies)
 
-	for _, movie := range movies {
-		var director models.Director
+	// for _, movie := range movies {
+	// 	var director models.Director
+	// 	database.Instance.Db.Find(&director, "id = ?", movie.DirectorID)
+	// 	respMovie = append(respMovie, models.Movie{ID: movie.ID, Title: movie.Title, Synopsis: movie.Synopsis, Status: movie.Status, ReleaseYear: movie.ReleaseYear, Review: movie.Review, Director: director, Cover: movie.Cover, DirectorID: movie.DirectorID})
+	// }
 
-		database.Instance.Db.Find(&director, "id = ?", movie.DirectorID)
-		respMovie = append(respMovie, models.Movie{ID: movie.ID, Title: movie.Title, Synopsis: movie.Synopsis, Status: movie.Status, ReleaseYear: movie.ReleaseYear, Review: movie.Review, Director: director, Cover: movie.Cover, DirectorID: movie.DirectorID})
-	}
-
-	return c.Status(200).JSON(respMovie)
+	return c.Status(200).JSON(&movies)
 }
 
 func GetMovie(c *fiber.Ctx) error {
