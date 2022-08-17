@@ -13,57 +13,13 @@ import {
 	ReferenceLine,
 } from 'recharts';
 
-const data = [
-	{
-		name: 'Page A',
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
-	},
-	{
-		name: 'Page B',
-		uv: 3000,
-		pv: 1398,
-		amt: 2210,
-	},
-	{
-		name: 'Page C',
-		uv: 2000,
-		pv: 9800,
-		amt: 2290,
-	},
-	{
-		name: 'Page D',
-		uv: 2780,
-		pv: 3908,
-		amt: 2000,
-	},
-	{
-		name: 'Page E',
-		uv: 1890,
-		pv: 4800,
-		amt: 2181,
-	},
-	{
-		name: 'Page F',
-		uv: 2390,
-		pv: 3800,
-		amt: 2500,
-	},
-	{
-		name: 'Page G',
-		uv: 3490,
-		pv: 4300,
-		amt: 2100,
-	},
-];
-
 const Home: NextPage<{
 	statistics: {
 		movies: number;
 		directors: number;
 		countries: number;
 		mpc: Array<{ nationality: string; count: number }>;
+		stw: Array<{ label: string; count: number }>;
 	};
 }> = ({ statistics }) => {
 	const highestMovieNumber = Math.max(
@@ -108,12 +64,12 @@ const Home: NextPage<{
 					</div>
 				</dl>
 			</main>
-			<div className='py-8'>
-				<ResponsiveContainer width='50%' height={500}>
+			<div className='py-8 grid grid-cols-1 lg:grid-cols-2'>
+				<ResponsiveContainer width='100%' height={500}>
 					<BarChart
 						data={statistics.mpc}
 						margin={{ top: 5, right: 20, left: 20, bottom: 80 }}>
-						<CartesianGrid strokeDasharray='3 3' />
+						<CartesianGrid strokeDasharray='2 2' />
 						<XAxis
 							dataKey='nationality'
 							interval={0}
@@ -130,12 +86,22 @@ const Home: NextPage<{
 								value: `Highest Number of Movies per Country: ${highestMovieNumber}`,
 								position: 'top',
 								fontSize: 12,
-								fontWeight: 'bold',
+								fontWeight: 500,
 							}}
-							stroke='red'
-							strokeDasharray='3 3'
+							stroke='#ef4444'
+							strokeDasharray='4 4'
 						/>
 						<Bar dataKey='count' fill='#4f46e5' />
+					</BarChart>
+				</ResponsiveContainer>
+				<ResponsiveContainer width='100%' height={500}>
+					<BarChart
+						data={statistics.stw}
+						margin={{ top: 5, right: 20, left: 20, bottom: 80 }}>
+						<CartesianGrid strokeDasharray='2 2' />
+						<XAxis dataKey='label' interval={0} fontSize={14} dy={15} />
+						<Tooltip />
+						<Bar maxBarSize={20} dataKey='count' fill='#4f46e5' />
 					</BarChart>
 				</ResponsiveContainer>
 			</div>
