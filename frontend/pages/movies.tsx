@@ -5,21 +5,15 @@ import Image from 'next/image';
 import type { NextPage } from 'next';
 import { useUser } from '@auth0/nextjs-auth0';
 import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
-import { RiDeleteBin2Fill, RiLoader4Fill } from 'react-icons/ri';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 
 import { fetchMovies } from 'lib/movies';
 import { Notification } from 'components/Misc/Notification';
-import { Movie, Movies } from 'types/Movie';
+import { Movie } from 'types/Movie';
 
-const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
-	const { isLoading, isError, error, data } = useQuery(
-		['movies'],
-		fetchMovies,
-		{
-			initialData: movies,
-		}
-	);
+const Movies: NextPage = () => {
+	const { isLoading, data } = useQuery(['movies'], fetchMovies);
 	const [show, setShow] = useState(false);
 	const { user } = useUser();
 
@@ -30,8 +24,8 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 
 	if (isLoading) {
 		return (
-			<div className='fixed inset-0 h-screen'>
-				<RiLoader4Fill className='h-6 w-6 animate-spin-slow' />
+			<div className='fixed inset-0 h-screen flex flex-col justify-center items-center'>
+				<h1 className='text-4xl font-bold'>Loading Data ...</h1>
 			</div>
 		);
 	}
@@ -47,13 +41,13 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 			<main>
 				<h1 className='text-2xl font-bold'>Movies</h1>
 				<div className='py-8 flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4'>
-					{data.map((movie: Movie) => (
+					{data?.map((movie: Movie) => (
 						<Link key={movie?.id} href={`/movies/${movie.id}`}>
 							<a className='group '>
 								<div className='space-y-4'>
 									<Image
 										loading='eager'
-										blurDataURL={movie?.cover}
+										blurDataURL={movie?.cover ? movie.cover : '/covers.png'}
 										objectFit='cover'
 										placeholder='blur'
 										layout='responsive'
@@ -66,10 +60,20 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 									<div className='flex items-center space-x-2 lg:space-x-4'>
 										<div>
 											<h2
-												className='text-lg font-bold w-44 truncate'
+												className='group-hover:translate-x-1 text-lg font-bold w-44 truncate transition duration-300'
 												aria-label={movie?.title}>
 												{movie?.title}
 											</h2>
+											<p className='group-hover:translate-x-1 text-gray-400 text-sm transition duration-300'>
+												<span
+													className={`${
+														movie.status ? 'text-green-600' : 'text-orange-600'
+													}`}>
+													{movie?.status ? 'Seen' : 'Watchlist'}
+												</span>{' '}
+												- {movie?.releaseYear}
+											</p>
+											<p className='group-hover:translate-x-1 text-gray-400 transition duration-300'></p>
 										</div>
 										{user ? (
 											<button
@@ -95,13 +99,12 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 	);
 };
 
-export async function getServerSideProps() {
-	const response = await fetchMovies();
+export async function getStaticProps() {
+	const queryClient = new QueryClient();
+	await queryClient.prefetchQuery(['movies'], fetchMovies);
 
 	return {
-		props: {
-			movies: response,
-		},
+		props: { dehydratedState: dehydrate(queryClient) },
 	};
 }
 

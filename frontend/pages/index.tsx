@@ -1,35 +1,20 @@
-import { useQuery } from '@tanstack/react-query';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import {
-	RiFilmFill,
-	RiFlagFill,
-	RiLoader4Fill,
-	RiUserFill,
-} from 'react-icons/ri';
+import { RiFilmFill, RiFlagFill, RiUserFill } from 'react-icons/ri';
 
 import { fetchStatistics } from 'lib/statistics';
 import { MPCChart } from 'components/Charts/MPCChart';
 import { STWChart } from 'components/Charts/STWChart';
-import { StatisticsPage } from 'types/Chart';
 import { StatCard } from 'components/Misc/StatCard';
 
-const Home: NextPage<{ statistics: StatisticsPage }> = ({ statistics }) => {
-	const { isLoading, isError, error, data } = useQuery(
-		['statistics'],
-		fetchStatistics,
-		{
-			initialData: statistics,
-		}
-	);
-	const highestMovieNumber = Math.max(
-		...statistics.mpc.map((data) => data.value)
-	);
+const Home: NextPage = () => {
+	const { isLoading, data } = useQuery(['statistics'], fetchStatistics);
 
 	if (isLoading) {
 		return (
-			<div className='fixed inset-0 h-screen'>
-				<RiLoader4Fill className='h-6 w-6 animate-spin-slow' />
+			<div className='fixed inset-0 h-screen flex flex-col justify-center items-center'>
+				<h1 className='text-4xl font-bold'>Loading Data ...</h1>
 			</div>
 		);
 	}
@@ -65,7 +50,7 @@ const Home: NextPage<{ statistics: StatisticsPage }> = ({ statistics }) => {
 			</section>
 			<section className='mt-12 grid grid-cols-1 lg:grid-cols-2'>
 				<div>
-					<MPCChart data={data.mpc} hmn={highestMovieNumber} />
+					<MPCChart data={data.mpc} />
 				</div>
 				<div>
 					<STWChart data={data.stw} />
@@ -75,13 +60,12 @@ const Home: NextPage<{ statistics: StatisticsPage }> = ({ statistics }) => {
 	);
 };
 
-export async function getServerSideProps() {
-	const response = await fetchStatistics();
+export async function getStaticProps() {
+	const queryClient = new QueryClient();
+	await queryClient.prefetchQuery(['movies'], fetchStatistics);
 
 	return {
-		props: {
-			statistics: response,
-		},
+		props: { dehydratedState: dehydrate(queryClient) },
 	};
 }
 

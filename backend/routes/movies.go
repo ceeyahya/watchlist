@@ -53,7 +53,7 @@ func GetMovie(c *fiber.Ctx) error {
 	}
 
 	database.Instance.Db.Find(&director, "id = ?", movie.DirectorID)
-	respMovie = models.Movie{ID: movie.ID, Title: movie.Title, Synopsis: movie.Synopsis, Status: movie.Status, ReleaseYear: movie.ReleaseYear, Review: movie.Review, Director: director}
+	respMovie = models.Movie{ID: movie.ID, Title: movie.Title, Synopsis: movie.Synopsis, Status: movie.Status, ReleaseYear: movie.ReleaseYear, Cover: movie.Cover, Review: movie.Review, Director: director}
 
 	return c.Status(200).JSON(respMovie)
 }

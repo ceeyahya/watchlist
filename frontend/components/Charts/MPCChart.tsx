@@ -10,13 +10,8 @@ import {
 } from 'recharts';
 import { StatElement } from 'types/Chart';
 
-export const MPCChart = ({
-	data,
-	hmn,
-}: {
-	data: Array<StatElement>;
-	hmn: number;
-}) => {
+export const MPCChart = ({ data }: { data: Array<StatElement> }) => {
+	const hmn = Math.max(...data.map((d: any) => d.value));
 	return (
 		<ResponsiveContainer width='100%' height={500}>
 			<BarChart

@@ -5,7 +5,7 @@ export const fetchMovies = async () => {
 	return response.data;
 };
 
-export const fetchMovie = async () => {
-	const res = await axios.get('http://127.0.0.1:8080/movies');
+export const fetchMovie = async (id: string | string[] | undefined) => {
+	const res = await axios.get(`http://127.0.0.1:8080/movie/${id}`);
 	return res.data;
 };
