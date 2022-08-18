@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 import type { NextPage } from 'next';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -50,12 +51,17 @@ const Directors: NextPage<{ directors: Directors }> = ({ directors }) => {
 						<Link href={`/directors/${director.id}`}>
 							<a>
 								<div key={director.id} className='group py-8 space-y-4'>
-									<img
-										className='group-hover:hover:scale-105 shadow-md shadow-gray-200 rounded-md transition duration-300 '
-										width={214}
-										height={317}
-										src={director.avatar}
-										alt={director.fullname}
+									<Image
+										loading='eager'
+										blurDataURL={director?.avatar}
+										objectFit='cover'
+										placeholder='blur'
+										layout='responsive'
+										className='group-hover:hover:scale-105 group-hover:rounded-md shadow-md shadow-gray-200 rounded-md transition duration-300'
+										width={217}
+										height={314}
+										src={director?.avatar || '/covers.png'}
+										alt={`${director?.fullname} Avatar`}
 									/>
 									<div className='flex items-center space-x-2 md:space-x-4'>
 										<div>

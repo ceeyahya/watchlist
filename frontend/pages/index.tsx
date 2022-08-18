@@ -44,7 +44,7 @@ const Home: NextPage<{ statistics: StatisticsPage }> = ({ statistics }) => {
 
 			<section className=''>
 				<h1 className='text-2xl font-bold'>Statistics</h1>
-				<div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3'>
+				<div className='mt-4 grid grid-cols-1 gap-y-8 lg:gap-y-0 gap-x-4 sm:grid-cols-3'>
 					<StatCard
 						title='Movies'
 						stat={data.movies}

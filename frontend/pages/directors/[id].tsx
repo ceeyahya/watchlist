@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchDirectors } from 'lib/directors';
-import { NextPage, GetServerSidePropsContext } from 'next';
+import Image from 'next/image';
 import { RiLoader4Fill } from 'react-icons/ri';
+import { NextPage, GetServerSidePropsContext } from 'next';
+
 import { Director } from 'types/Director';
+import { fetchDirectors } from 'lib/directors';
 
 const Director: NextPage<{ director: Director }> = ({ director }) => {
 	const { isLoading, isError, error, data } = useQuery(
-		['movie'],
+		['director'],
 		fetchDirectors,
 		{
 			initialData: director,
@@ -23,7 +25,18 @@ const Director: NextPage<{ director: Director }> = ({ director }) => {
 
 	return (
 		<div>
-			<img src={director?.avatar} alt='' />
+			<Image
+				loading='eager'
+				blurDataURL={director?.avatar}
+				objectFit='cover'
+				placeholder='blur'
+				layout='intrinsic'
+				className='shadow-md shadow-gray-200 rounded-md'
+				width={217}
+				height={314}
+				src={director?.avatar || '/covers.png'}
+				alt={`${director?.fullname} Avatar`}
+			/>
 			<h1>{director.fullname}</h1>
 			<p>{director.nationality}</p>
 		</div>

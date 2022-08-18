@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 import type { NextPage } from 'next';
 import { useUser } from '@auth0/nextjs-auth0';
 import axios from 'axios';
@@ -50,8 +51,13 @@ const Movies: NextPage<{ movies: Movies }> = ({ movies }) => {
 						<Link key={movie?.id} href={`/movies/${movie.id}`}>
 							<a className='group '>
 								<div className='space-y-4'>
-									<img
-										className='group-hover:hover:scale-105 shadow-md shadow-gray-200 rounded-md transition duration-300 '
+									<Image
+										loading='eager'
+										blurDataURL={movie?.cover}
+										objectFit='cover'
+										placeholder='blur'
+										layout='responsive'
+										className='group-hover:hover:scale-105 group-hover:rounded-md shadow-md shadow-gray-200 rounded-md transition duration-300'
 										width={217}
 										height={314}
 										src={movie?.cover || '/covers.png'}
