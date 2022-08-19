@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/ceeyahya/watchlist-backend/models"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -19,10 +18,10 @@ type DBInstance struct {
 var Instance DBInstance
 
 func Connect() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("[Error]: Error while loading the .env file.")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatal("[Error]: Error while loading the .env file.")
+	// }
 
 	host := os.Getenv("DB_HOST")
 	user := os.Getenv("DB_USER")
