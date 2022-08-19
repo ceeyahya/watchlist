@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import {
@@ -78,8 +79,10 @@ export const Navbar = () => {
 											<div>
 												<Menu.Button className='bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'>
 													<span className='sr-only'>Open user menu</span>
-													<img
-														className='h-8 w-8 rounded-full'
+													<Image
+														width={12}
+														height={12}
+														className='rounded-full'
 														src={user?.picture || ''}
 														alt={`${user?.name} Profile Picture`}
 													/>
