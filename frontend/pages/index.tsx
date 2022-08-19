@@ -42,8 +42,8 @@ const Home: NextPage = () => {
 					/>
 
 					<StatCard
-						title='Movies'
-						stat={data.movies}
+						title='Countries'
+						stat={data.countries}
 						icon={<RiFlagFill className='h-4 w-4' />}
 					/>
 				</div>
