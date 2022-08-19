@@ -21,7 +21,7 @@ export function RadioButtons({
 							onBlur={onBlur}
 							onChange={() => onChange(true)}
 							checked={value === true}
-							inputRef={ref}
+							data-inputRef={ref}
 						/>
 						<p className='ml-1 block text-sm font-medium text-gray-700'>Seen</p>
 					</label>
@@ -32,7 +32,7 @@ export function RadioButtons({
 							onBlur={onBlur}
 							onChange={() => onChange(false)}
 							checked={value === false}
-							inputRef={ref}
+							data-inputRef={ref}
 						/>
 						<p className='ml-1 block text-sm font-medium text-gray-700'>
 							Watchlist
