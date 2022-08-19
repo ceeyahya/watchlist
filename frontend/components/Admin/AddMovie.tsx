@@ -29,11 +29,11 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 		control,
 		formState: { errors },
 		reset,
-	} = useForm<FieldValues | Movie>({
+	} = useForm<Movie>({
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit: SubmitHandler<FieldValues | Movie> = async (data) => {
+	const onSubmit: SubmitHandler<Movie> = async (data: any) => {
 		const formData = new FormData();
 
 		formData.append('file', data.cover[0]);
@@ -80,9 +80,7 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 							placeholder='Taxi Driver'
 							type='text'
 						/>
-						<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-							{errors.title?.message}
-						</p>
+						{errors.title && <p>{errors.title?.message}</p>}
 					</div>
 
 					<div>
@@ -94,9 +92,7 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 							type='number'
 							maxLength={4}
 						/>
-						<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-							{errors.releaseYear?.message}
-						</p>
+						{errors.releaseYear && <p>{errors.releaseYear?.message}</p>}
 					</div>
 				</div>
 
@@ -107,9 +103,7 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 						label='Synopsis'
 						placeholder='Travis Bickle is a New York cabbie that suffers from insomnia ...'
 					/>
-					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-						{errors.synopsis?.message}
-					</p>
+					{errors.synopsis && <p>{errors.synopsis?.message}</p>}
 				</div>
 
 				<div>
@@ -129,9 +123,7 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 							</option>
 						))}
 					</select>
-					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-						{errors.directorId?.message}
-					</p>
+					{errors.directorId && <p>{errors.directorId?.message}</p>}
 				</div>
 
 				<div>
@@ -141,16 +133,12 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 						label='Review'
 						placeholder='You should not aspire to be Travis Bickle...'
 					/>
-					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-						{errors.review?.message}
-					</p>
+					{errors.review && <p>{errors.review?.message}</p>}
 				</div>
 
 				<div>
 					<RadioButtons control={control} name='status' />
-					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-						{errors.status?.message}
-					</p>
+					{errors.status && <p>{errors.status?.message}</p>}
 				</div>
 
 				<div>
@@ -160,9 +148,7 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 						id='cover'
 						{...register('cover')}
 					/>
-					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
-						{errors.cover?.message}
-					</p>
+					{errors.cover && <p>{errors.cover?.message}</p>}
 				</div>
 
 				<div>

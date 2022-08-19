@@ -1,12 +1,13 @@
 import React from 'react';
 import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { Director } from 'types/Director';
 import { Movie } from 'types/Movie';
 
 interface TextAreaProps
 	extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
 	name: string;
 	label: string;
-	register: UseFormRegister<FieldValues>;
+	register: any;
 }
 
 export const TextArea = ({ name, label, register, ...rest }: TextAreaProps) => {

@@ -21,13 +21,11 @@ export const AddDirector = () => {
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm<FieldValues | Director>({
+	} = useForm<Director>({
 		resolver: yupResolver(schema),
 	});
 
-	const onDirectorSubmit: SubmitHandler<FieldValues | Director> = async (
-		data
-	) => {
+	const onDirectorSubmit: SubmitHandler<Director> = async (data) => {
 		const formData = new FormData();
 		formData.append('file', data.avatar[0]);
 		formData.append(
