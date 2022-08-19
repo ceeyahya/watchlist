@@ -1,6 +1,13 @@
-import { Controller } from 'react-hook-form';
+import { Control, Controller, FieldValue, FieldValues } from 'react-hook-form';
+import { Movie } from 'types/Movie';
 
-export function RadioButtons({ control, name }) {
+export function RadioButtons({
+	control,
+	name,
+}: {
+	control: Control<Movie>;
+	name: any;
+}) {
 	return (
 		<Controller
 			control={control}
