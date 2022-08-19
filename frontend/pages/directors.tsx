@@ -18,7 +18,7 @@ const Directors: NextPage = () => {
 	const { user } = useUser();
 
 	const handleDelete = async (id: number) => {
-		await axios.delete(`http://127.0.0.1/director/${id}`);
+		await axios.delete(`https://watchlist-api.onrender.com/director/${id}`);
 		setShow(true);
 	};
 
@@ -42,9 +42,9 @@ const Directors: NextPage = () => {
 				<h1 className='text-2xl font-bold'>Directors</h1>
 				<div className='flex flex-col items-center sm:grid md:grid-cols-3 lg:grid-cols-4 sm:gap-x-4'>
 					{data.map((director: Director) => (
-						<Link href={`/directors/${director.id}`}>
+						<Link key={director.id} href={`/directors/${director.id}`}>
 							<a>
-								<div key={director.id} className='group py-8 space-y-4'>
+								<div className='group py-8 space-y-4'>
 									<Image
 										loading='eager'
 										blurDataURL={director?.avatar}
@@ -64,13 +64,6 @@ const Directors: NextPage = () => {
 											</h2>
 											<p className='text-gray-500'>{director.nationality}</p>
 										</div>
-										{user ? (
-											<button
-												onClick={() => handleDelete(director?.id)}
-												className='text-red-600 hover:text-red-800 transition duration-300'>
-												<RiDeleteBin2Fill className='h-5 w-5' />
-											</button>
-										) : null}
 									</div>
 								</div>
 							</a>

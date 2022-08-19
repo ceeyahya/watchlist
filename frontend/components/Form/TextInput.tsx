@@ -22,6 +22,7 @@ export const TextInput = ({
 			</label>
 			<div className='mt-1'>
 				<input
+					name={name}
 					id={name}
 					className='shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md'
 					{...register(name)}

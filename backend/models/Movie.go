@@ -5,7 +5,7 @@ type Movie struct {
 	Title       string   `json:"title" gorm:"uniqueIndex"`
 	ReleaseYear string   `json:"releaseYear"`
 	Synopsis    string   `json:"synopsis"`
-	Status      bool     `json:"status"`
+	Status      *bool    `json:"status"`
 	Review      string   `json:"review"`
 	Cover       string   `json:"cover"`
 	DirectorID  int      `json:"directorId"`

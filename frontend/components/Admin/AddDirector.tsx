@@ -9,10 +9,9 @@ import { Notification } from 'components/Misc/Notification';
 import { Director } from 'types/Director';
 
 const schema = yup.object().shape({
-	id: yup.number().required(),
 	fullname: yup.string().required(),
 	nationality: yup.string().required(),
-	avatar: yup.string().url(),
+	avatar: yup.mixed().required('Avatar is a required field.'),
 });
 
 export const AddDirector = () => {
@@ -26,9 +25,10 @@ export const AddDirector = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit: SubmitHandler<FieldValues | Director> = async (data) => {
+	const onDirectorSubmit: SubmitHandler<FieldValues | Director> = async (
+		data
+	) => {
 		const formData = new FormData();
-
 		formData.append('file', data.avatar[0]);
 		formData.append(
 			'upload_preset',
@@ -38,14 +38,13 @@ export const AddDirector = () => {
 			'cloud_name',
 			process.env.NEXT_PUBLIC_CLOUDINARY_CLOUDNAME!
 		);
-
 		await axios
 			.post(
 				`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUDNAME}/image/upload`,
 				formData
 			)
 			.then((resp) =>
-				axios.post('http://127.0.0.1:8080/director', {
+				axios.post('https://watchlist-api.onrender.com/director', {
 					fullname: data.fullname,
 					nationality: data.nationality,
 					avatar: resp.data.secure_url,
@@ -53,20 +52,21 @@ export const AddDirector = () => {
 			)
 			.then((resp) => setShow(true))
 			.catch((err) => console.log(err));
-
 		reset();
 	};
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit(onSubmit)} className='max-w-lg space-y-4'>
+			<form
+				onSubmit={handleSubmit(onDirectorSubmit)}
+				className='max-w-lg space-y-4'>
 				<div>
 					<TextInput
-						label='Full Name'
-						name='fullname'
-						type='text'
-						placeholder='Martin Scorcese'
 						register={register}
+						name='fullname'
+						label='Full Name'
+						placeholder='Martin Scorcese'
+						type='text'
 					/>
 					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
 						{errors.fullname?.message}
@@ -75,11 +75,11 @@ export const AddDirector = () => {
 
 				<div>
 					<TextInput
-						label='Nationality'
-						name='nationality'
-						type='text'
-						placeholder='US'
 						register={register}
+						name='nationality'
+						label='Nationality'
+						placeholder='US'
+						type='text'
 					/>
 					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>
 						{errors.nationality?.message}
@@ -90,7 +90,7 @@ export const AddDirector = () => {
 					<input
 						className='block w-64 file:appearance-none file:rounded-md text-gray-500 file:border-0 file:mr-4 file:px-4 file:py-2 file:bg-gray-200 file:shadow-sm file:shadow-gray-200'
 						type='file'
-						id='cover'
+						id='avatar'
 						{...register('avatar')}
 					/>
 					<p className='first-letter:uppercase mt-1 text-xs text-red-600'>

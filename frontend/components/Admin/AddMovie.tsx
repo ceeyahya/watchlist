@@ -17,7 +17,7 @@ const schema = yup.object().shape({
 	review: yup.string().max(200),
 	status: yup.bool().required(),
 	directorId: yup.string().required(),
-	cover: yup.string().url().required(),
+	cover: yup.mixed().required('Cover is a required field'),
 	releaseYear: yup.string().required().max(4),
 });
 
@@ -52,7 +52,7 @@ export const AddMovie = ({ directors }: { directors: Directors }) => {
 				formData
 			)
 			.then((resp) =>
-				axios.post('http://127.0.0.1:8080/movie', {
+				axios.post('https://watchlist-api.onrender.com/movie', {
 					title: data.title,
 					releaseYear: data.releaseYear,
 					synopsis: data.synopsis,

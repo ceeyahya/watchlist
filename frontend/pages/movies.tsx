@@ -75,13 +75,6 @@ const Movies: NextPage = () => {
 											</p>
 											<p className='group-hover:translate-x-1 text-gray-400 transition duration-300'></p>
 										</div>
-										{user ? (
-											<button
-												onClick={() => handleDelete(movie?.id)}
-												className='text-red-600 hover:text-red-800 transition duration-300'>
-												<RiDeleteBin2Fill className='h-5 w-5' />
-											</button>
-										) : null}
 									</div>
 								</div>
 							</a>
