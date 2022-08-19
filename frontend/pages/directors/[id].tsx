@@ -13,21 +13,6 @@ const Director: NextPage<{ director: Director; movies: Movies }> = ({
 	director,
 	movies,
 }) => {
-	const directorQuery = useQuery(['director'], fetchDirector, {
-		initialData: director,
-	});
-	const moviesQuery = useQuery(['director'], fetchDirectorMovies, {
-		initialData: movies,
-	});
-
-	if (directorQuery.isLoading) {
-		return (
-			<div className='fixed inset-0 h-screen'>
-				<RiLoader4Fill className='h-6 w-6 animate-spin-slow' />
-			</div>
-		);
-	}
-
 	return (
 		<div className='py-4 sm:py-24 max-w-3xl mx-auto space-y-8'>
 			<Head>
